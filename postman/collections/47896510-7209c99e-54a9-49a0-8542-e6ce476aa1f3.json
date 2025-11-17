@@ -1613,6 +1613,83 @@
 							"response": []
 						},
 						{
+							"name": "Not Supported - Login MemberId Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											" executeWithRetry(pm,() =>  {\r",
+											"   notSupportedAssertions.runDefaultAssertions(pm);\r",
+											" });"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {},
+										"id": "89dd8c44-1879-4f76-8ec3-b5c3677284ac"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"skipIfSupported(pm,\"SupportsLoginByMemberId\")"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {},
+										"id": "9e57c224-ecef-4f15-b214-db31969399bf"
+									}
+								}
+							],
+							"id": "47896510-af9713fc-e695-46c1-a55f-beb61b5ad030",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "username",
+											"value": "{{GatewayUsername}}",
+											"type": "string"
+										},
+										{
+											"key": "password",
+											"value": "{{GatewayPassword}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Member\": {\r\n     \"MemberId\": \"{{MemberId}}\"\r\n  },\r\n  \"Pac\": \"{{PacSet}}\",\r\n  \"ConversationId\": \"{{ConversationId}}\",\r\n  \"RelationshipId\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BaseUrl}}/api/v2/Member/{{TenantGuidDefault}}/Login",
+									"host": [
+										"{{BaseUrl}}"
+									],
+									"path": [
+										"api",
+										"v2",
+										"Member",
+										"{{TenantGuidDefault}}",
+										"Login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Not Supported - Login By Account",
 							"event": [
 								{
