@@ -15426,6 +15426,68 @@
 											"response": []
 										},
 										{
+											"name": "Login By Member Id - Logout Copy",
+											"event": [
+												{
+													"listen": "test",
+													"script": {
+														"exec": [
+															""
+														],
+														"type": "text/javascript",
+														"packages": {},
+														"id": "d6e4e56f-e0d6-433b-be31-380aaae2b9cb"
+													}
+												}
+											],
+											"id": "47896510-9a4e348a-609d-433e-bcbe-d6b865b40746",
+											"protocolProfileBehavior": {
+												"disableBodyPruning": true
+											},
+											"request": {
+												"auth": {
+													"type": "basic",
+													"basic": [
+														{
+															"key": "username",
+															"value": "{{GatewayUsername}}",
+															"type": "string"
+														},
+														{
+															"key": "password",
+															"value": "{{GatewayPassword}}",
+															"type": "string"
+														}
+													]
+												},
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\r\n  \"Member\": {\r\n    \"MemberId\": \"{{MemberId}}\"\r\n  },\r\n  \"ConversationId\": \"{{ConversationId}}\",\r\n  \"RelationshipId\": \"\"\r\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{BaseUrl}}/api/v2/Member/{{TenantGuidDefault}}/Logout",
+													"host": [
+														"{{BaseUrl}}"
+													],
+													"path": [
+														"api",
+														"v2",
+														"Member",
+														"{{TenantGuidDefault}}",
+														"Logout"
+													]
+												}
+											},
+											"response": []
+										},
+										{
 											"name": "Login By MemberId - Login",
 											"event": [
 												{
