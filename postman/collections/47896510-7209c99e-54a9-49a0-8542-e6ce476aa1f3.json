@@ -15506,7 +15506,7 @@
 											"response": []
 										},
 										{
-											"name": "Login By MemberId - Login Copy",
+											"name": "Login By MemberId - Login - Changing name",
 											"event": [
 												{
 													"listen": "test",
